@@ -6,6 +6,6 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_text_to_speech">Type something you want me to say!</string>
+    <string name="button_speak">SPEAK</string>
 </resources>

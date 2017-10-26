@@ -5,9 +5,10 @@
     android:id="@+id/layout_movie"
     tools:context="edu.ucsb.cs.cs184.jaredbjensen.jjensendemosuite.MovieFragment">
 
-    <TextView
+    <VideoView
+        android:id="@+id/video_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hello" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 </FrameLayout>

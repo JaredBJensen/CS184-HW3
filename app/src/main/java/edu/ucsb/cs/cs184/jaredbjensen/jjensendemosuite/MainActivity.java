@@ -19,7 +19,7 @@ import android.view.MenuItem;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends FragmentActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     static Fragment activeFragment;
@@ -38,7 +38,7 @@ public class MainActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -50,8 +50,6 @@ public class MainActivity extends FragmentActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         fragmentManager = getSupportFragmentManager();
-
-
     }
 
     @Override
@@ -89,19 +87,19 @@ public class MainActivity extends FragmentActivity
 
         if (id == R.id.nav_picture_viewer) {
             pictureFragment = new PictureFragment();
-            addFragment(R.id.layout_picture, pictureFragment);
+            addFragment(pictureFragment);
         } else if (id == R.id.nav_fireworks) {
             fireworkFragment = new FireworkFragment();
-            addFragment(R.id.layout_firework, fireworkFragment);
+            addFragment(fireworkFragment);
         } else if (id == R.id.nav_movie) {
             movieFragment = new MovieFragment();
-            addFragment(R.id.layout_movie, movieFragment);
+            addFragment(movieFragment);
         } else if (id == R.id.nav_text_to_speech) {
             textToSpeechFragment = new TextToSpeechFragment();
-            addFragment(R.id.layout_text_to_speech, textToSpeechFragment);
+            addFragment(textToSpeechFragment);
         } else if (id == R.id.nav_speech_to_text) {
             speechToTextFragment = new SpeechToTextFragment();
-            addFragment(R.id.layout_speech_to_text, speechToTextFragment);
+            addFragment(speechToTextFragment);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -109,19 +107,19 @@ public class MainActivity extends FragmentActivity
         return true;
     }
 
-    private void addFragment(int layout, Fragment fragment) {
+    private void addFragment(Fragment fragment) {
 
         if (activeFragment == null) {
             transaction = fragmentManager.beginTransaction();
-            transaction.add(R.id., fragment);
+            transaction.add(R.id.layout_content_main, fragment);
             transaction.commit();
             activeFragment = fragment;
             return;
         }
 
         transaction = fragmentManager.beginTransaction();
-        transaction.remove(activeFragment).commit();
-        transaction.replace(layout, fragment);
+        transaction.remove(activeFragment);
+        transaction.add(R.id.layout_content_main, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
         activeFragment = fragment;

@@ -7,5 +7,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="hint_text_to_speech">Type something you want me to say!</string>
+    <string name="hint_speech_to_text">Tap on mic to speak</string>
     <string name="button_speak">SPEAK</string>
 </resources>

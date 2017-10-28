@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         fragmentManager = getSupportFragmentManager();
+
+        if (savedInstanceState != null) {
+            activeFragment = fragmentManager.getFragment(savedInstanceState, "activeFragment");
+        }
     }
 
     @Override
@@ -105,6 +109,13 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        fragmentManager.putFragment(outState, "activeFragment", activeFragment);
     }
 
     private void addFragment(Fragment fragment) {

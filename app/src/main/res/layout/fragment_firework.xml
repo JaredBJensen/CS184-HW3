@@ -5,6 +5,9 @@
     android:id="@+id/layout_firework"
     tools:context="edu.ucsb.cs.cs184.jaredbjensen.jjensendemosuite.FireworkFragment">
 
-
+    <edu.ucsb.cs.cs184.jaredbjensen.jjensendemosuite.FireworkSurface
+        android:id="@+id/firework_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>
